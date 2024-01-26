@@ -26,7 +26,7 @@ def solution(friends: list, gifts: list):
             have_sum += _list[k][i]
         futures_list.append(sum(j) - have_sum)
 
-    # answer에 추가
+    # 비교 및 받은 선물을 추가
     for i in set_index_list:
         if _list[i[0]][i[1]] == _list[i[1]][i[0]] or (_list[i[0]][i[1]] == 0 and _list[i[1]][i[0]] == 0):
             if futures_list[i[0]] > futures_list[i[1]]:
