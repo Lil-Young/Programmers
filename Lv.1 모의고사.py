@@ -18,9 +18,6 @@ def solution(answers):
     for idx, i in enumerate(answer):
         if max_num == i:
             answer_list.append(idx+1)
-    
-        
-        
     return answer_list
 
 if __name__ == "__main__":
