@@ -1,4 +1,5 @@
-from itertools import combinations_with_replacement
-data = ['A', 'B', 'C'] # 데이터 준비
-result = list(combinations_with_replacement(data, 2)) # 2개를 뽑는 모든 조합 구하기 (중복 허용)
-print(result) # [('A', 'A'), ('A', 'B'), ('A', 'C'), ('B', 'B'), ('B', 'C'), ('C', 'C')]
+N = int(input())
+loc = list(map(str, input().split()))
+arr = [[0] * N for i in range(N)]
+arr[3][3] = 1
+print(arr)
