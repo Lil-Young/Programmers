@@ -1,16 +1,21 @@
-a = input()
-x, y= ''.join(a)
-_dict = {'a':1, 'b':2, 'c':3, 'd':4, 'e':5, 'f':6, 'g':7, 'h':8}
-x = _dict[x]
-x, y = int(x), int(y)
-temp_x, temp_y = x, y
-cnt = 0
-nums = [[2, 1], [2, -1], [-2, 1], [-2, -1], [1, 2], [1, -2], [-1, 2], [-1, -2]]
-for n1, n2 in zip([num[0] for num in nums], [num[1] for num in nums]):
-    x += n1
-    y += n2
-    if (x >= 1 and x <= 8) and (y >= 1 and y <= 8):
-        cnt+=1
-    x, y = temp_x, temp_y
-print(cnt)
+data = input()
+result = []
+value = 0
 
+# 문자를 하나씩 확인하며
+for x in data:
+    # 알파벳인 경우 결과 리스트에 삽입
+    if x.isalpha():
+        result.append(x)
+    # 숫자는 따로 더하기
+    else:
+        value += int(x)
+# 알파벳을 오름차순으로 정렬
+result.sort()
+
+# 숫자가 하나라도 존재하는 경우 가장 뒤에 삽입
+if value != 0:
+    result.append(str(value))
+
+# 최종 결과 출력(리스트를 문자열로 변환하여 출력)
+print('.join(result)')
