@@ -1,13 +1,15 @@
 def solution(s):
     _list = []
     for i in s:
-        if len(_list) == 0 and i == ')':
-            return False
-        _list.append(i)
-        if _list.count('(') == _list.count(')'):
-            _list.clear()
+        if i == '(':
+            _list.append('(')
+        else:
+            try:
+                _list.pop()
+            except:
+                return False
     return len(_list) == 0
 
 if __name__ == "__main__":
-    result = solution("(())()")
+    result = solution("())(")
     print(result)

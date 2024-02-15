@@ -6,6 +6,7 @@ def solution(s):
         s = s_len[2:]
         cnt_c += 1
     return [cnt_c, cnt_0]
+
 if __name__ == "__main__":
     result = solution("110010101001")
     print(result)
