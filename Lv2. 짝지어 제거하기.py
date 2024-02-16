@@ -10,10 +10,7 @@ def solution(s):
                 temp.pop()
             else:
                 temp.append(i)
-
-
     answer = 1 if len(temp) == 0 else 0
-
     return answer
 
 if __name__ == "__main__":
