@@ -1,6 +1,5 @@
 from math import sqrt
 def solution(brown, yellow):
-    answer = []
     _list = []
     val = brown + yellow
     if val % 2 == 0 or sqrt(val)*10 != 0: # 짝수
@@ -17,11 +16,6 @@ def solution(brown, yellow):
                 if yellow == x*y:
                     return i
     else:
-        x = x = int(sqrt(val))
-        if x*10 != 0:
-            x = int((sqrt(val) + (sqrt(val) - int(sqrt(val)) + 0.5)))
-            y = int(sqrt(val))
-            return [x, y]
         x = int(sqrt(val))
         y = int(sqrt(val))
         return [x, y]
