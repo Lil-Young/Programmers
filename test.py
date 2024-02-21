@@ -1,16 +1,26 @@
-n, k = map(int, input().split()) # N과 K를 입력 받기
-a = list(map(int, input().split())) # 배열 A의 모든 원소를 입력 받기
-b = list(map(int, input().split())) # 배열 B의 모든 원소를 입력 받기
+# 이진 탐색 소스코드 구현 (재귀 함수)
+def binary_search(array, target, start, end):
+    if start > end:
+        return None
+    mid = (start + end) // 2
+    # 찾은 경우 중간점 인덱스 반환
+    if array[mid] == target:
+        return mid
+    # 중간점의 값보다 찾고자 하는 값이 작은 경우 왼쪽 확인
+    elif array[mid] > target:
+        return binary_search(array, target, start, mid - 1)
+    # 중간점의 값보다 찾고자 하는 값이 큰 경우 오른쪽 확인
+    else:
+        return binary_search(array, target, mid + 1, end)
 
-a.sort() # 배열 A는 오름차순 정렬 수행
-b.sort(reverse=True) # 배열 B는 내림차순 정렬 수행
+# n(원소의 개수)과 target(찾고자 하는 값)을 입력 받기
+n, target = list(map(int, input().split()))
+# 전체 원소 입력 받기
+array = list(map(int, input().split()))
 
-# 첫 번째 인덱스부터 확인하며, 두 배열의 원소를 최대 K번 비교
-for i in range(k):
-    # A의 원소가 B의 원소보다 작은 경우
-    if a[i] < b[i]:
-        # 두 원소를 교체
-        a[i], b[i] = b[i], a[i]
-    else: # A의 원소가 B의 원소보다 크거나 같을 때, 반복문을 탈출
-        break
-print(sum(a))
+# 이진 탐색 수행 결과 출력
+result = binary_search(array, target, 0, n-1)
+if result == None:
+    print("원소가 존재하지 않습니다.")
+else:
+    print(result + 1)
