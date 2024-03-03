@@ -1,18 +1,25 @@
-
 from collections import Counter
-def solution(want, number, discount):
+def solution(want:list, number:list, discount:list):
     answer = 0
-    dic = {}
-    for i in range(len(want)):
-        dic[want[i]] = number[i]
+    cpy_discount = discount
+    num = sum(number)
+    for i in range(len(discount)):
+        discount = cpy_discount[i:i+10]
+        if len(discount) < num:
+            break
 
-    for i in range(len(discount)-9):
-        print(dic)
-        print(Counter(discount[i:i+10]))
-        print('----------------------------')
-        if dic == Counter(discount[i:i+10]): 
+        a = dict(Counter(discount))
+        cnt = 0
+
+        for idx, k in enumerate(want):
+            try:
+                if a[k] >= number[idx]:
+                    cnt+=1
+            except:
+                break
+        if cnt == len(want):
             answer += 1
-
+        
     return answer
 
 if __name__ == '__main__':
