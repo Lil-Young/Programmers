@@ -4,9 +4,11 @@ def solution(arr1:list, arr2:list):
     answer = [[0] * a for _ in range(b)]
 
     for i, value1 in enumerate(arr1):
+        print(i, value1)
         for k, value2 in enumerate(value1):
-                for j in range(a):
-                    answer[i][j] += arr1[i][k] * arr2[k][j]
+            for j in range(a):
+                print(f"i, j, k: {i, j, k}")
+                answer[i][j] += arr1[i][k] * arr2[k][j]
     return answer
 
 if __name__ == '__main__':
