@@ -2,6 +2,7 @@ def solution(cacheSize:int, cities:list):
     # 캐시 크기가 0이면 모든 경우가 miss이므로 cities 길이의 5를 곱한 값을 return한다.
     if cacheSize == 0:
         return len(cities)*5
+    
     # 리스트에 있는 도시들의 이름은 대소문자를 구분하지 않으므로 구분을 하기위해 전부 대문자로 바꿔준다.
     cities = [x.upper() for x in cities]
 
