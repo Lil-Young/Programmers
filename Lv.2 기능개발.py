@@ -6,10 +6,8 @@ def solution(progresses, speeds):
     long_day = 0
     answer = []
     days = deque(ceil((100 - p) / s) for p, s in zip(progresses, speeds))
-    print(days)
     while days:
         day = days.popleft()
-        print(day)
         if day > long_day:
             answer.append(1)
             long_day = day
