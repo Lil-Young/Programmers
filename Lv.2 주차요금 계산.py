@@ -13,6 +13,7 @@ def solution(fees:list, records:list):
     # OUT을 안한 차의 시간 계산을 위함
     v = 23*60 + 59
 
+    # 'IN'이면 stack에 넣고, 'OUT'이면 stack에서 뺀다.
     stack = []
     for i in records:
         to_minute = int(i[0][:2])*60 + int(i[0][3:])
