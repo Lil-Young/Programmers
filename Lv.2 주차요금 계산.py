@@ -3,12 +3,16 @@ import math
 def solution(fees:list, records:list):
     # fees: 주차요금(기본 시간(분), 기본 요금(원), 단위 시간(분), 단위 요금(원)), records: 자동차의 입/출차 내역
     answer = []
-    records = [x.split(' ') for x in records]
-    records = sorted(records, key = lambda x:(x[1], x))
-    set_r = list(set(x[1] for x in records))
-    set_r.sort()
+
+    # 리스트 안에 문자열을 리스트로 만들고 차 번호를 기준으로 정렬
+    records = sorted([x.split(' ') for x in records], key = lambda x:(x[1], x))
+    # set을 이용해 차 번호 중복 제거 및 리스트 변환 후 오름차순 정렬
+    set_r = sorted(list(set(x[1] for x in records)))
+    # 차번호:이용시간 딕셔너리 생성
     cars_minute = {x:0 for x in set_r}
+    # OUT을 안한 차의 시간 계산을 위함
     v = 23*60 + 59
+
     stack = []
     for i in records:
         to_minute = int(i[0][:2])*60 + int(i[0][3:])
@@ -34,6 +38,7 @@ def solution(fees:list, records:list):
         else:
             answer.append(fees[1])
     return answer
+
 # 0000 | 34 + 300 = 334	| 5000 + ⌈(334 - 180) / 10⌉ x 600 = 14600
 
 if __name__ == '__main__':
