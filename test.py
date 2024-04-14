@@ -6,11 +6,12 @@ def solution(dirs):
         nx, ny = x + d[i][0], y + d[i][1]
         if -5 <= nx <= 5 and -5 <= ny <= 5:
             s.add((x,y,nx,ny))
+            s.add((nx,ny,x,y))
             x, y = nx, ny
-    return len(s)
+    return len(s)//2
 
 if __name__ == '__main__':
     result = solution("ULURRDLLU")
     print(result)
-    result2 = solution("LULLLLLLU")
-    print(result2)
+    # result2 = solution("LULLLLLLU")
+    # print(result2)
