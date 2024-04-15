@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 def solution(dirs):
     s = set()
     d = {'U': (0,1), 'D': (0, -1), 'R': (1, 0), 'L': (-1, 0)}
@@ -15,3 +16,14 @@ if __name__ == '__main__':
     print(result)
     # result2 = solution("LULLLLLLU")
     # print(result2)
+=======
+from test2 import cd, plus, val, val2, val3, val4, val5
+
+print(cd)
+print(plus(2, 3))
+print(val)
+print(val2)
+print(val3)
+print(val4)
+print(val5)
+>>>>>>> Stashed changes
